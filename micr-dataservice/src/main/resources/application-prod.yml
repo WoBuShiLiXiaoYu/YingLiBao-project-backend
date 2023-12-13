@@ -1,0 +1,34 @@
+# 设置服务名称
+spring:
+  application:
+    name: micr-dataservice
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://1.14.12.49:3306/ylb?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 779462
+
+# mybatis 设置
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:/mappers/*Mapper.xml
+
+
+
+# dubbo 设置
+dubbo:
+  registry:
+    address: zookeeper://1.14.12.49:2181
+  provider:
+    timeout: 50000
+    retries: 0
+  scan:
+    base-packages: com.ylb.work.dataservice.service.impl
+
+# 原始密码加盐
+ylb:
+  config:
+    password-salt: hjhfj103jhwf84hjgbuiu67653vyhugy

@@ -1,0 +1,55 @@
+# 设置服务名称
+spring:
+  application:
+    name: micr-web
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ylb?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 779462
+
+
+# 端口设置
+server:
+  port: 8000
+  servlet:
+    context-path: /api
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+# dubbo 设置
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  consumer:
+    check: false
+    timeout: 50000
+    retries: 0
+  scan:
+    base-packages: com.ylb.work.front.controller
+
+# 短信验证码配置
+aliyun:
+  sms:
+    #url: https://yytz.market.alicloudapi.com/chuangxin/yytz
+    url: https://cxkjsms.market.alicloudapi.com/chuangxinsms/dxjk
+    appkey: 204281832
+    appSecret: X1nKK0tHGNcmFQLzgu1342McO4FEp9RG
+    appCode: 2ac0a9630bc3455ba1b9f2da341ee421
+    content: 【注册验证测试模板】您正在进行短信调试，切勿将短信乱发，您的验证码是：%s，有效期5分钟。本模板仅作API接口调试专用，如有打扰请忽略内容
+    login-text: 【登录验证测试模板】您正在进行短信调试，切勿将短信乱发，您的验证码是：%s，有效期5分钟。本模板仅作API接口调试专用，如有打扰请忽略内容
+  realname:
+    url: https://lhidcardck.market.alicloudapi.com/idcard/check
+    appCode: 2ac0a9630bc3455ba1b9f2da341ee421
+# jwt 配置
+jwt:
+  secret: 342903934cb944808920b642616b3e76

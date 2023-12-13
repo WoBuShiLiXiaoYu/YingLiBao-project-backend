@@ -1,0 +1,25 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /pay
+
+spring:
+  application:
+    name: micr-pay
+  thymeleaf:
+    cache: false
+
+  redis:
+    port: 6379
+    host: localhost
+
+dubbo:
+  registry:
+    address: zookeeper://localhost:2181
+  scan:
+    base-packages: com.ylb.work.pay
+  consumer:
+    timeout: 60000
+    check: false
+    retries: 0
+
